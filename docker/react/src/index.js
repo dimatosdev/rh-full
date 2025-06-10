@@ -1,12 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import store from "./store";
-import ThemeApp from "./Theme";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <ThemeApp />
-  </Provider>,
-  document.querySelector('#root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -47,32 +47,23 @@ ENV PUID ${PUID}
 ARG PGID=1000
 ENV PGID ${PGID}
 
-# always run apt update when start and after add new source list, then clean up at end.
 RUN set -xe; \
-    apt-get update -yqq && \
-    pecl channel-update pecl.php.net && \
-    groupadd -g ${PGID} laradock && \
-    useradd -l -u ${PUID} -g laradock -m laradock -G docker_env && \
-    usermod -p "*" laradock -s /bin/bash && \
+    apt-get update -yqq; \
+    pecl channel-update pecl.php.net; \
+    # Tenta criar o grupo, ignorando se já existir
+    groupadd -g 1000 laradock || true; \
+    # Tenta criar o usuário, ignorando se já existir
+    useradd -l -u 1000 -g laradock -m laradock -G docker_env || true; \
+    usermod -p "*" laradock -s /bin/bash || true; \
     apt-get install -yqq \
-      apt-utils \
-      #
-      #--------------------------------------------------------------------------
-      # Mandatory Software's Installation
-      #--------------------------------------------------------------------------
-      #
-      # Mandatory Software's such as ("php-cli", "git", "vim", ....) are
-      # installed on the base image 'laradock/workspace' image. If you want
-      # to add more Software's or remove existing one, you need to edit the
-      # base image (https://github.com/Laradock/workspace).
-      #
-      # next lines are here because there is no auto build on dockerhub see https://github.com/laradock/laradock/pull/1903#issuecomment-463142846
-      libzip-dev zip unzip \
-      # Install the zip extension
-      php${LARADOCK_PHP_VERSION}-zip \
-      # nasm
-      nasm && \
-      php -m | grep -q 'zip'
+        apt-utils \
+        libzip-dev \
+        zip \
+        unzip \
+        php8.3-zip \
+        nasm; \
+    php -m | grep -q 'zip'
+
 
 #
 #--------------------------------------------------------------------------
@@ -99,25 +90,42 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # User Aliases
 ###########################################################################
 
+
 USER root
 
 COPY ./aliases.sh /root/aliases.sh
-COPY ./aliases.sh /home/laradock/aliases.sh
 
-RUN sed -i 's/\r//' /root/aliases.sh && \
-    sed -i 's/\r//' /home/laradock/aliases.sh && \
-    chown laradock:laradock /home/laradock/aliases.sh && \
-    echo "" >> ~/.bashrc && \
-    echo "# Load Custom Aliases" >> ~/.bashrc && \
-    echo "source ~/aliases.sh" >> ~/.bashrc && \
-	  echo "" >> ~/.bashrc
+# Criar usuário laradock
+RUN set -xe; \
+    # Remover usuário existente se houver conflito
+    (userdel -r $(id -nu 1000) 2>/dev/null || true); \
+    (groupdel laradock 2>/dev/null || true); \
+    # Criar grupo e usuário
+    groupadd -f -g 1000 laradock; \
+    useradd -m -g laradock -u 1000 -s /bin/bash laradock; \
+    # Garantir que o diretório home existe
+    mkdir -p /home/laradock; \
+    # Copiar aliases para o usuário
+    cp /root/aliases.sh /home/laradock/aliases.sh; \
+    # Limpar caracteres de retorno
+    sed -i 's/\r//' /root/aliases.sh; \
+    sed -i 's/\r//' /home/laradock/aliases.sh; \
+    # Configurar permissões
+    chown laradock:laradock /home/laradock/aliases.sh; \
+    # Configurar bashrc do root
+    echo "" >> ~/.bashrc; \
+    echo "# Load Custom Aliases" >> ~/.bashrc; \
+    echo "source ~/aliases.sh" >> ~/.bashrc; \
+    echo "" >> ~/.bashrc
 
+# Mudar para usuário laradock
 USER laradock
 
+# Configurar bashrc do usuário laradock
 RUN echo "" >> ~/.bashrc && \
     echo "# Load Custom Aliases" >> ~/.bashrc && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
-	  echo "" >> ~/.bashrc
+    echo "" >> ~/.bashrc
 
 ###########################################################################
 # Composer:
