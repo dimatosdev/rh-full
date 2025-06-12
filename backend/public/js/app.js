@@ -61673,196 +61673,6 @@ var DicomApp = function DicomApp() {
 
 /***/ }),
 
-/***/ "./resources/js/components/DicomInstructions.jsx":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/DicomInstructions.jsx ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-var DicomInstructions = function DicomInstructions() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    showInstructions = _useState2[0],
-    setShowInstructions = _useState2[1];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
-      className: "btn btn-outline-info btn-sm",
-      onClick: function onClick() {
-        return setShowInstructions(true);
-      },
-      title: "Como usar o visualizador",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-        className: "fas fa-question-circle me-1"
-      }), "Ajuda"]
-    }), showInstructions && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "modal fade show",
-      style: {
-        display: 'block',
-        backgroundColor: 'rgba(0,0,0,0.5)'
-      },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "modal-dialog",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "modal-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "modal-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h5", {
-              className: "modal-title",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                className: "fas fa-info-circle me-2"
-              }), "Como usar o Visualizador DICOM"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              type: "button",
-              className: "btn-close",
-              onClick: function onClick() {
-                return setShowInstructions(false);
-              }
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "modal-body",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "row",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "col-12",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h6", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                    className: "fas fa-mouse me-2"
-                  }), "Controles do Mouse:"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-                  className: "list-unstyled ms-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      children: "Arrastar:"
-                    }), " Ajustar Window/Level (brilho/contraste)"]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      children: "Scroll:"
-                    }), " Zoom in/out"]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      children: "Mover mouse:"
-                    }), " Mostrar crosshair (se ativado)"]
-                  })]
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "row",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "col-12",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h6", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                    className: "fas fa-tools me-2"
-                  }), "Ferramentas:"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                  className: "row",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "col-6",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-                      className: "list-unstyled",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                          className: "fas fa-search-plus text-primary"
-                        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                          children: "Zoom In"
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                          className: "fas fa-search-minus text-primary"
-                        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                          children: "Zoom Out"
-                        })]
-                      })]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "col-6",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-                      className: "list-unstyled",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                          className: "fas fa-crosshairs text-success"
-                        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                          children: "Crosshair"
-                        })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                          className: "fas fa-undo text-primary"
-                        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                          children: "Reset"
-                        })]
-                      })]
-                    })
-                  })]
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "row",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "col-12",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h6", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                    className: "fas fa-info me-2"
-                  }), "Informa\xE7\xF5es:"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-                  className: "list-unstyled ms-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      children: "Zoom:"
-                    }), " N\xEDvel de amplia\xE7\xE3o atual"]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      children: "W/L:"
-                    }), " Window Width / Window Level"]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                      children: "X/Y:"
-                    }), " Coordenadas do mouse (quando crosshair ativo)"]
-                  })]
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "alert alert-info",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-                className: "fas fa-lightbulb me-2"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-                children: "Dica:"
-              }), " Use o bot\xE3o direito do mouse para diferentes fun\xE7\xF5es em vers\xF5es futuras!"]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "modal-footer",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              type: "button",
-              className: "btn btn-primary",
-              onClick: function onClick() {
-                return setShowInstructions(false);
-              },
-              children: "Entendi"
-            })
-          })]
-        })
-      })
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DicomInstructions);
-
-/***/ }),
-
 /***/ "./resources/js/components/DicomViewer.jsx":
 /*!*************************************************!*\
   !*** ./resources/js/components/DicomViewer.jsx ***!
@@ -61876,8 +61686,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _DicomInstructions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DicomInstructions */ "./resources/js/components/DicomInstructions.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -61896,13 +61705,10 @@ function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" !=
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
-
 var DicomViewer = function DicomViewer(_ref) {
-  var _viewport$voi, _viewport$voi2;
   var image = _ref.image,
     onClose = _ref.onClose;
   var elementRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-  var crosshairRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     loading = _useState2[0],
@@ -61915,252 +61721,167 @@ var DicomViewer = function DicomViewer(_ref) {
     _useState6 = _slicedToArray(_useState5, 2),
     imageLoaded = _useState6[0],
     setImageLoaded = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState8 = _slicedToArray(_useState7, 2),
-    viewport = _useState8[0],
-    setViewport = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState0 = _slicedToArray(_useState9, 2),
-    showCrosshair = _useState0[0],
-    setShowCrosshair = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      x: 0,
-      y: 0
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      crosshair: false,
+      rotation: 0,
+      scale: 1
     }),
-    _useState10 = _slicedToArray(_useState1, 2),
-    mousePosition = _useState10[0],
-    setMousePosition = _useState10[1];
+    _useState8 = _slicedToArray(_useState7, 2),
+    tools = _useState8[0],
+    setTools = _useState8[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (elementRef.current && image) {
-      initializeViewer();
+    if (elementRef.current) {
+      // Habilitar cornerstone no elemento
+      window.cornerstone.enable(elementRef.current);
+      if (image) {
+        loadDicomImage();
+      }
+      return function () {
+        // Cleanup
+        try {
+          if (elementRef.current) {
+            window.cornerstone.disable(elementRef.current);
+          }
+        } catch (e) {
+          console.log('Elemento já foi desabilitado');
+        }
+      };
     }
-    return function () {
-      cleanup();
-    };
   }, [image]);
-  var initializeViewer = /*#__PURE__*/function () {
+  var loadDicomImage = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var attempts, _t;
+      var imageUrl, loadedImage, viewport, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.n) {
           case 0:
-            // Aguardar Cornerstone estar pronto
-            attempts = 0;
-          case 1:
-            if (!(!window.cornerstoneReady && attempts < 50)) {
-              _context.n = 3;
-              break;
-            }
-            _context.n = 2;
-            return new Promise(function (resolve) {
-              return setTimeout(resolve, 100);
-            });
-          case 2:
-            attempts++;
-            _context.n = 1;
-            break;
-          case 3:
-            if (window.cornerstoneReady) {
-              _context.n = 4;
-              break;
-            }
-            setError('Timeout: Cornerstone não inicializou');
-            return _context.a(2);
-          case 4:
-            _context.p = 4;
-            // Habilitar cornerstone no elemento
-            window.cornerstone.enable(elementRef.current);
-
-            // Adicionar event listeners
-            setupInteractions();
-
-            // Carregar imagem
-            _context.n = 5;
-            return loadDicomImage();
-          case 5:
-            _context.n = 7;
-            break;
-          case 6:
-            _context.p = 6;
-            _t = _context.v;
-            console.error('Erro ao inicializar viewer:', _t);
-            setError("Erro ao inicializar: ".concat(_t.message));
-          case 7:
-            return _context.a(2);
-        }
-      }, _callee, null, [[4, 6]]);
-    }));
-    return function initializeViewer() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-  var setupInteractions = function setupInteractions() {
-    if (!elementRef.current) return;
-    var element = elementRef.current;
-
-    // Mouse wheel para zoom
-    element.addEventListener('wheel', handleWheel);
-
-    // Mouse events para window/level e crosshair
-    element.addEventListener('mousedown', handleMouseDown);
-    element.addEventListener('mousemove', handleMouseMove);
-    element.addEventListener('mouseup', handleMouseUp);
-    element.addEventListener('mouseleave', handleMouseLeave);
-    element.addEventListener('mouseenter', handleMouseEnter);
-  };
-  var handleWheel = function handleWheel(e) {
-    if (!imageLoaded) return;
-    e.preventDefault();
-    var viewport = window.cornerstone.getViewport(elementRef.current);
-    var scaleFactor = e.deltaY > 0 ? 0.9 : 1.1;
-    viewport.scale *= scaleFactor;
-    window.cornerstone.setViewport(elementRef.current, viewport);
-    setViewport(_objectSpread({}, viewport));
-  };
-  var isDragging = false;
-  var lastX, lastY;
-  var handleMouseDown = function handleMouseDown(e) {
-    if (!imageLoaded) return;
-    isDragging = true;
-    lastX = e.clientX;
-    lastY = e.clientY;
-    elementRef.current.style.cursor = 'grabbing';
-  };
-  var handleMouseMove = function handleMouseMove(e) {
-    if (!imageLoaded) return;
-
-    // Atualizar posição do crosshair
-    var rect = elementRef.current.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    setMousePosition({
-      x: x,
-      y: y
-    });
-
-    // Window/Level adjustment durante drag
-    if (isDragging) {
-      var deltaX = e.clientX - lastX;
-      var deltaY = e.clientY - lastY;
-      var _viewport = window.cornerstone.getViewport(elementRef.current);
-      _viewport.voi.windowWidth += deltaX * 4;
-      _viewport.voi.windowCenter += deltaY * 4;
-      window.cornerstone.setViewport(elementRef.current, _viewport);
-      setViewport(_objectSpread({}, _viewport));
-      lastX = e.clientX;
-      lastY = e.clientY;
-    }
-  };
-  var handleMouseUp = function handleMouseUp() {
-    isDragging = false;
-    if (elementRef.current) {
-      elementRef.current.style.cursor = showCrosshair ? 'none' : 'crosshair';
-    }
-  };
-  var handleMouseLeave = function handleMouseLeave() {
-    isDragging = false;
-    setShowCrosshair(false);
-  };
-  var handleMouseEnter = function handleMouseEnter() {
-    if (imageLoaded) {
-      setShowCrosshair(true);
-    }
-  };
-  var loadDicomImage = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var imageUrl, response, imageId, loadedImage, initialViewport, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.n) {
-          case 0:
             if (!(!image || !elementRef.current)) {
-              _context2.n = 1;
+              _context.n = 1;
               break;
             }
-            return _context2.a(2);
+            return _context.a(2);
           case 1:
             setLoading(true);
             setError('');
             setImageLoaded(false);
-            _context2.p = 2;
+            _context.p = 2;
+            // URL da imagem DICOM
             imageUrl = "/storage/".concat(image.file_path);
-            console.log('Carregando imagem DICOM:', imageUrl);
+            console.log('Carregando imagem:', imageUrl);
 
-            // Verificar se arquivo existe
-            _context2.n = 3;
-            return fetch(imageUrl, {
-              method: 'HEAD'
-            });
+            // Carregar imagem usando WADO Image Loader
+            _context.n = 3;
+            return window.cornerstone.loadImage("wadouri:".concat(imageUrl));
           case 3:
-            response = _context2.v;
-            if (response.ok) {
-              _context2.n = 4;
-              break;
-            }
-            throw new Error("Arquivo n\xE3o encontrado (".concat(response.status, ")"));
-          case 4:
-            // Carregar com Cornerstone
-            imageId = "wadouri:".concat(imageUrl);
-            console.log('ImageId:', imageId);
-            _context2.n = 5;
-            return window.cornerstone.loadImage(imageId);
-          case 5:
-            loadedImage = _context2.v;
-            console.log('Imagem carregada:', loadedImage);
-
-            // Exibir imagem
-            _context2.n = 6;
+            loadedImage = _context.v;
+            _context.n = 4;
             return window.cornerstone.displayImage(elementRef.current, loadedImage);
-          case 6:
+          case 4:
             // Configurar viewport inicial
-            initialViewport = window.cornerstone.getDefaultViewportForImage(elementRef.current, loadedImage);
-            window.cornerstone.setViewport(elementRef.current, initialViewport);
-            setViewport(initialViewport);
+            viewport = window.cornerstone.getDefaultViewportForImage(elementRef.current, loadedImage);
+            window.cornerstone.setViewport(elementRef.current, viewport);
             setImageLoaded(true);
-            console.log('✅ Imagem DICOM exibida com sucesso!');
-            _context2.n = 8;
+            setupTools();
+            console.log('Imagem DICOM carregada com sucesso!');
+            _context.n = 6;
             break;
-          case 7:
-            _context2.p = 7;
-            _t2 = _context2.v;
-            console.error('❌ Erro ao carregar DICOM:', _t2);
-            setError("Erro: ".concat(_t2.message));
-          case 8:
-            _context2.p = 8;
+          case 5:
+            _context.p = 5;
+            _t = _context.v;
+            console.error('Erro ao carregar imagem DICOM:', _t);
+            setError('Erro ao carregar imagem DICOM. Verifique se o arquivo é válido.');
+          case 6:
+            _context.p = 6;
             setLoading(false);
-            return _context2.f(8);
-          case 9:
-            return _context2.a(2);
+            return _context.f(6);
+          case 7:
+            return _context.a(2);
         }
-      }, _callee2, null, [[2, 7, 8, 9]]);
+      }, _callee, null, [[2, 5, 6, 7]]);
     }));
     return function loadDicomImage() {
-      return _ref3.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
-  var cleanup = function cleanup() {
+  var setupTools = function setupTools() {
+    if (!elementRef.current) return;
     try {
-      if (elementRef.current && window.cornerstone) {
-        var element = elementRef.current;
-        element.removeEventListener('wheel', handleWheel);
-        element.removeEventListener('mousedown', handleMouseDown);
-        element.removeEventListener('mousemove', handleMouseMove);
-        element.removeEventListener('mouseup', handleMouseUp);
-        element.removeEventListener('mouseleave', handleMouseLeave);
-        element.removeEventListener('mouseenter', handleMouseEnter);
-        window.cornerstone.disable(element);
+      // Limpar ferramentas existentes
+      window.cornerstoneTools.clearToolState(elementRef.current, 'Crosshairs');
+
+      // Adicionar ferramentas
+      var ZoomTool = window.cornerstoneTools.ZoomTool;
+      var PanTool = window.cornerstoneTools.PanTool;
+      var WwwcTool = window.cornerstoneTools.WwwcTool;
+      var CrosshairsTool = window.cornerstoneTools.CrosshairsTool;
+      window.cornerstoneTools.addTool(ZoomTool);
+      window.cornerstoneTools.addTool(PanTool);
+      window.cornerstoneTools.addTool(WwwcTool);
+      window.cornerstoneTools.addTool(CrosshairsTool);
+
+      // Configurar mouse bindings
+      window.cornerstoneTools.setToolActive('Wwwc', {
+        mouseButtonMask: 1
+      }); // Botão esquerdo
+      window.cornerstoneTools.setToolActive('Zoom', {
+        mouseButtonMask: 2
+      }); // Botão direito
+      window.cornerstoneTools.setToolActive('Pan', {
+        mouseButtonMask: 4
+      }); // Botão do meio
+    } catch (error) {
+      console.error('Erro ao configurar ferramentas:', error);
+    }
+  };
+  var handleRotate = function handleRotate() {
+    if (!elementRef.current || !imageLoaded) return;
+    try {
+      var newRotation = (tools.rotation + 90) % 360;
+      setTools(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          rotation: newRotation
+        });
+      });
+      var viewport = window.cornerstone.getViewport(elementRef.current);
+      viewport.rotation = newRotation * Math.PI / 180;
+      window.cornerstone.setViewport(elementRef.current, viewport);
+    } catch (error) {
+      console.error('Erro ao rotacionar:', error);
+    }
+  };
+  var handleCrosshair = function handleCrosshair() {
+    if (!elementRef.current || !imageLoaded) return;
+    try {
+      var newCrosshair = !tools.crosshair;
+      setTools(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          crosshair: newCrosshair
+        });
+      });
+      if (newCrosshair) {
+        // Ativar crosshair
+        window.cornerstoneTools.setToolActive('Crosshairs', {
+          mouseButtonMask: 1
+        });
+      } else {
+        // Desativar crosshair e voltar para window/level
+        window.cornerstoneTools.setToolActive('Wwwc', {
+          mouseButtonMask: 1
+        });
       }
-    } catch (e) {
-      console.log('Cleanup realizado');
+    } catch (error) {
+      console.error('Erro ao configurar crosshair:', error);
     }
   };
   var handleReset = function handleReset() {
     if (!elementRef.current || !imageLoaded) return;
     try {
-      var element = elementRef.current;
-      var enabledElement = window.cornerstone.getEnabledElement(element);
-      var defaultViewport = window.cornerstone.getDefaultViewportForImage(element, enabledElement.image);
-      window.cornerstone.setViewport(element, defaultViewport);
-      setViewport(defaultViewport);
+      window.cornerstone.reset(elementRef.current);
+      setTools({
+        crosshair: false,
+        rotation: 0,
+        scale: 1
+      });
+      setupTools();
     } catch (error) {
       console.error('Erro ao resetar:', error);
     }
@@ -62168,200 +61889,119 @@ var DicomViewer = function DicomViewer(_ref) {
   var handleZoom = function handleZoom(factor) {
     if (!elementRef.current || !imageLoaded) return;
     try {
-      var _viewport2 = window.cornerstone.getViewport(elementRef.current);
-      _viewport2.scale *= factor;
-      window.cornerstone.setViewport(elementRef.current, _viewport2);
-      setViewport(_objectSpread({}, _viewport2));
+      var viewport = window.cornerstone.getViewport(elementRef.current);
+      viewport.scale *= factor;
+      viewport.scale = Math.max(0.1, Math.min(10, viewport.scale)); // Limitar zoom
+      window.cornerstone.setViewport(elementRef.current, viewport);
+      setTools(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          scale: viewport.scale
+        });
+      });
     } catch (error) {
-      console.error('Erro no zoom:', error);
+      console.error('Erro ao fazer zoom:', error);
     }
   };
-  var toggleCrosshair = function toggleCrosshair() {
-    setShowCrosshair(!showCrosshair);
-    if (elementRef.current) {
-      elementRef.current.style.cursor = !showCrosshair ? 'none' : 'crosshair';
-    }
-  };
-  var handleDownload = function handleDownload() {
-    if (image) {
-      var link = document.createElement('a');
-      link.href = "/storage/".concat(image.file_path);
-      link.download = image.name + '.dcm';
-      link.click();
-    }
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "modal fade show",
-    style: {
-      display: 'block',
-      backgroundColor: 'rgba(0,0,0,0.8)'
-    },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "modal-dialog modal-xl",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "modal-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "modal-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h5", {
-            className: "modal-title",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-              className: "fas fa-eye me-2"
-            }), (image === null || image === void 0 ? void 0 : image.name) || 'Visualizador DICOM']
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            type: "button",
-            className: "btn-close",
-            onClick: onClose
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "modal-body p-0",
-          style: {
-            position: 'relative'
-          },
-          children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "text-center p-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "spinner-border",
-              role: "status",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "visually-hidden",
-                children: "Carregando..."
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "mt-2",
-              children: "Carregando imagem DICOM..."
-            })]
-          }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "alert alert-danger m-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h6", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-exclamation-triangle me-2"
-              }), "Erro"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              children: error
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "mt-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
-                className: "btn btn-primary me-2",
-                onClick: loadDicomImage,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                  className: "fas fa-redo me-1"
-                }), "Tentar Novamente"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
-                className: "btn btn-secondary",
-                onClick: handleDownload,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                  className: "fas fa-download me-1"
-                }), "Baixar Arquivo"]
-              })]
-            })]
-          }), !loading && !error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              ref: elementRef,
-              style: {
-                width: '100%',
-                height: '600px',
-                backgroundColor: '#000',
-                cursor: showCrosshair ? 'none' : 'crosshair',
-                position: 'relative'
-              },
-              className: "dicom-viewer-element"
-            }), showCrosshair && imageLoaded && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              style: {
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '600px',
-                pointerEvents: 'none',
-                zIndex: 10
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                style: {
-                  position: 'absolute',
-                  top: "".concat(mousePosition.y, "px"),
-                  left: 0,
-                  width: '100%',
-                  height: '1px',
-                  backgroundColor: '#00ff00',
-                  boxShadow: '0 0 2px rgba(0,255,0,0.8)'
-                }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                style: {
-                  position: 'absolute',
-                  top: 0,
-                  left: "".concat(mousePosition.x, "px"),
-                  width: '1px',
-                  height: '100%',
-                  backgroundColor: '#00ff00',
-                  boxShadow: '0 0 2px rgba(0,255,0,0.8)'
-                }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                style: {
-                  position: 'absolute',
-                  top: "".concat(mousePosition.y - 2, "px"),
-                  left: "".concat(mousePosition.x - 2, "px"),
-                  width: '4px',
-                  height: '4px',
-                  backgroundColor: '#00ff00',
-                  borderRadius: '50%',
-                  boxShadow: '0 0 4px rgba(0,255,0,1)'
-                }
-              })]
-            })]
-          })]
-        }), imageLoaded && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "modal-footer",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "btn-group me-auto",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              className: "btn btn-outline-primary btn-sm",
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "dicom-viewer-container",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "card-header d-flex justify-content-between align-items-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h3", {
+          children: ["Visualizador DICOM - ", image === null || image === void 0 ? void 0 : image.name]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "btn-group me-2",
+            role: "group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              className: "btn btn-sm ".concat(tools.crosshair ? 'btn-success' : 'btn-outline-secondary'),
+              onClick: handleCrosshair,
+              disabled: loading || !imageLoaded,
+              title: "Crosshair com R\xE9gua",
+              children: "\u271A Crosshair"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              className: "btn btn-sm btn-outline-primary",
+              onClick: handleRotate,
+              disabled: loading || !imageLoaded,
+              title: "Rotacionar 90\xB0",
+              children: "\u21BB Rotacionar"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              className: "btn btn-sm btn-outline-success",
               onClick: function onClick() {
-                return handleZoom(1.2);
+                return handleZoom(1.25);
               },
+              disabled: loading || !imageLoaded,
               title: "Zoom In",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-search-plus"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              className: "btn btn-outline-primary btn-sm",
+              children: "\uD83D\uDD0D+"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              className: "btn btn-sm btn-outline-success",
               onClick: function onClick() {
                 return handleZoom(0.8);
               },
+              disabled: loading || !imageLoaded,
               title: "Zoom Out",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-search-minus"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              className: "btn btn-sm ".concat(showCrosshair ? 'btn-success' : 'btn-outline-primary'),
-              onClick: toggleCrosshair,
-              title: "Toggle Crosshair",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-crosshairs"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              className: "btn btn-outline-primary btn-sm",
+              children: "\uD83D\uDD0D-"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              className: "btn btn-sm btn-outline-warning",
               onClick: handleReset,
-              title: "Reset",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "fas fa-undo"
-              })
+              disabled: loading || !imageLoaded,
+              title: "Resetar",
+              children: "\uD83C\uDFE0 Reset"
             })]
-          }), viewport && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("small", {
-            className: "text-muted me-3",
-            children: ["Zoom: ", (viewport.scale * 100).toFixed(0), "% | W/L: ", Math.round(((_viewport$voi = viewport.voi) === null || _viewport$voi === void 0 ? void 0 : _viewport$voi.windowWidth) || 0), "/", Math.round(((_viewport$voi2 = viewport.voi) === null || _viewport$voi2 === void 0 ? void 0 : _viewport$voi2.windowCenter) || 0), showCrosshair && " | X: ".concat(Math.round(mousePosition.x), " Y: ").concat(Math.round(mousePosition.y))]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
-            className: "btn btn-secondary me-2",
-            onClick: handleDownload,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-              className: "fas fa-download me-1"
-            }), "Download"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "btn btn-primary",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "btn btn-sm btn-secondary",
             onClick: onClose,
-            children: "Fechar"
+            children: "\u2715 Fechar"
           })]
         })]
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "card-body",
+        children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "text-center p-4",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "spinner-border",
+            role: "status",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "visually-hidden",
+              children: "Carregando..."
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "mt-2",
+            children: "Carregando imagem DICOM..."
+          })]
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "alert alert-danger",
+          role: "alert",
+          children: error
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "position-relative",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            ref: elementRef,
+            style: {
+              width: '100%',
+              height: '600px',
+              backgroundColor: '#000',
+              border: '1px solid #ccc'
+            },
+            className: loading ? 'd-none' : ''
+          }), imageLoaded && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "position-absolute top-0 start-0 p-2 text-white small bg-dark bg-opacity-75",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: ["Zoom: ", (tools.scale * 100).toFixed(0), "%"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: ["Rota\xE7\xE3o: ", tools.rotation, "\xB0"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "mt-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("small", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+                  children: "Controles:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Bot\xE3o Esquerdo: Window/Level", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Bot\xE3o Direito: Zoom", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Bot\xE3o Meio: Pan"]
+              })
+            })]
+          })]
+        })]
+      })]
     })
   });
 };
