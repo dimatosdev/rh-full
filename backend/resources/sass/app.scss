@@ -1,0 +1,12 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Custom styles
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.dicom-viewer {
+    background-color: #000;
+    border: 1px solid #ccc;
+}

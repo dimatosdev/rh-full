@@ -33,7 +33,7 @@ class DicomImageController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'file' => 'required|file|mimes:dcm|max:10240',
-            'name' => 'required|string|max:255'
+            'name' => 'string|max:255'
         ]);
 
         if ($validator->fails()){

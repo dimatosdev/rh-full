@@ -555,23 +555,19 @@ services:
 
 ### MySQL ################################################
     mysql:
-      build:
-        context: ./mysql
-        args:
-          - MYSQL_VERSION=${MYSQL_VERSION}
+      image: mysql:8.0
       environment:
-        - MYSQL_DATABASE=${MYSQL_DATABASE}
-        - MYSQL_USER=${MYSQL_USER}
-        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-        - TZ=${WORKSPACE_TIMEZONE}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       volumes:
-        - ${DATA_PATH_HOST}/mysql:/var/lib/mysql
-        - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+        - ${DATA_PATH_HOST}/mysql/data:/var/lib/mysql  # Volume local
       ports:
-        - "${MYSQL_PORT}:3306"
+        - "3307:3306"
       networks:
         - backend
+      restart: unless-stopped
 
 ### Percona ################################################
     percona:
