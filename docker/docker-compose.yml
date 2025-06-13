@@ -319,6 +319,12 @@ services:
         - DOCKER_TLS_CERTDIR=/certs
         - DOCKER_CERT_PATH=/certs/client
         - FAKETIME=${PHP_FPM_FAKETIME}
+        - PHP_UPLOAD_MAX_FILESIZE=500M
+        - PHP_POST_MAX_SIZE=500M
+        - PHP_MEMORY_LIMIT=1G
+        - PHP_MAX_EXECUTION_TIME=300
+        - PHP_MAX_INPUT_TIME=300
+        - PHP_MAX_INPUT_VARS=3000
       depends_on:
         - workspace
       networks:

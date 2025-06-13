@@ -19,3 +19,43 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Configurações para upload de arquivos grandes
+<IfModule mod_php.c>
+    php_value upload_max_filesize 500M
+    php_value post_max_size 500M
+    php_value memory_limit 1G
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_value max_input_vars 3000
+    php_value max_file_uploads 20
+    php_value file_uploads On
+    php_value default_socket_timeout 300
+</IfModule>
+
+# Para DICOM files
+<IfModule mod_mime.c>
+    AddType application/dicom .dcm
+    AddType application/dicom .dicom
+</IfModule>
+
+# Headers para CORS
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+
+    # Headers específicos para uploads grandes
+    Header set Access-Control-Max-Age "3600"
+
+    # Headers para arquivos DICOM
+    <FilesMatch "\.(dcm|dicom)$">
+        Header set Content-Type "application/dicom"
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# Configurações de timeout para uploads grandes
+<IfModule mod_reqtimeout.c>
+    RequestReadTimeout header=20-40,MinRate=500 body=20,MinRate=500
+</IfModule>

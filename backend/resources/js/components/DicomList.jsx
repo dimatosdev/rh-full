@@ -1,101 +1,132 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { FaTrash, FaEye, FaSync, FaFile, FaCalendar, FaEdit, FaCheck, FaTimes } from "react-icons/fa";
+import { GrStorage } from "react-icons/gr";
 
-const DicomList = ({ refreshTrigger, onImageSelect }) => {
-    const [images, setImages] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+const DicomList = ({
+    images,
+    loadImages,
+    handleViewImage,
+    handleDeleteImage
+}) => {
+    const [editingId, setEditingId] = useState(null);
+    const [newName, setNewName] = useState('');
 
-    const fetchImages = async () => {
-        try {
-            setLoading(true);
-            const response = await axios.get('/api/dicom-images');
-            setImages(response.data);
-            setError('');
-        } catch (error) {
-            console.error('Erro ao carregar imagens:', error);
-            setError('Erro ao carregar lista de imagens');
-        } finally {
-            setLoading(false);
-        }
+    const handleEditClick = (image) => {
+        setEditingId(image.id);
+        setNewName(image.name);
     };
 
-    useEffect(() => {
-        fetchImages();
-    }, [refreshTrigger]);
-
-    const handleDelete = async (id) => {
-        if (!window.confirm('Tem certeza que deseja deletar esta imagem?')) {
-            return;
-        }
-
-        try {
-            await axios.delete(`/api/dicom-images/${id}`, {
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                }
-            });
-            setImages(images.filter(img => img.id !== id));
-            alert('Imagem deletada com sucesso!');
-        } catch (error) {
-            console.error('Erro ao deletar:', error);
-            alert('Erro ao deletar imagem');
-        }
+    const handleCancelEdit = () => {
+        setEditingId(null);
+        setNewName('');
     };
 
-    if (loading) {
-        return <div className="text-center">Carregando imagens...</div>;
-    }
-
-    if (error) {
-        return <div className="alert alert-danger">{error}</div>;
-    }
+    const handleSaveEdit = async (image) => {
+        try {
+            await axios.put(`/api/dicom-images/${image.id}`, { name: newName });
+            setEditingId(null);
+            setNewName('');
+            loadImages();
+        } catch (e) {
+            alert('Erro ao atualizar nome');
+        }
+    };
 
     return (
         <div className="card">
-            <div className="card-header">
-                <h3>Imagens DICOM ({images.length})</h3>
+            <div className="card-header d-flex justify-content-between align-items-center">
+                <h3>Imagens ({images.length})</h3>
+                <button
+                    className="btn btn-sm btn-outline-primary"
+                    onClick={loadImages}
+                    title="Atualizar lista"
+                >
+                    <FaSync />
+                </button>
             </div>
             <div className="card-body">
                 {images.length === 0 ? (
-                    <p className="text-muted">Nenhuma imagem DICOM encontrada.</p>
+                    <div className="text-center text-muted p-4">
+                        <div className="mb-3">
+                            <i className="fas fa-file-medical fa-3x"></i>
+                        </div>
+                        <p>Nenhuma imagem encontrada.</p>
+                        <small>Faça upload de um arquivo .dcm</small>
+                    </div>
                 ) : (
-                    <div className="table-responsive">
-                        <table className="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Arquivo Original</th>
-                                    <th>Tamanho</th>
-                                    <th>Data</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {images.map((image) => (
-                                    <tr key={image.id}>
-                                        <td>{image.name}</td>
-                                        <td>{image.original_name}</td>
-                                        <td>{(image.file_size / 1024).toFixed(1)} KB</td>
-                                        <td>{new Date(image.created_at).toLocaleDateString()}</td>
-                                        <td>
-                                            <button
-                                                className="btn btn-sm btn-primary me-2"
-                                                onClick={() => onImageSelect(image)}
-                                            >
-                                                Visualizar
-                                            </button>
-                                            <button
-                                                className="btn btn-sm btn-danger"
-                                                onClick={() => handleDelete(image.id)}
-                                            >
-                                                Deletar
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                    <div className="list-group list-group-flush">
+                        {images.map((image) => (
+                            <div key={image.id} className="list-group-item">
+                                <div className="d-flex justify-content-between align-items-start">
+                                    <div className="flex-grow-1">
+                                        {editingId === image.id ? (
+                                            <div className="mb-1">
+                                                <input
+                                                    type="text"
+                                                    className="form-control form-control-sm d-inline w-auto"
+                                                    value={newName}
+                                                    onChange={e => setNewName(e.target.value)}
+                                                    maxLength={255}
+                                                />
+                                                <button
+                                                    className="btn btn-success btn-sm ms-2"
+                                                    onClick={() => handleSaveEdit(image)}
+                                                    title="Salvar"
+                                                >
+                                                    <FaCheck />
+                                                </button>
+                                                <button
+                                                    className="btn btn-secondary btn-sm ms-1"
+                                                    onClick={handleCancelEdit}
+                                                    title="Cancelar"
+                                                >
+                                                    <FaTimes />
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <p className="mb-1 text-muted small">
+                                                <FaFile /> <strong>{image.name}</strong> <span className="text-secondary">({image.original_name})</span>
+                                            </p>
+                                        )}
+                                        <small className="text-muted">
+                                            <GrStorage /> {(image.file_size / 1024).toFixed(1)} KB
+                                            {image.description && (
+                                                <>
+                                                    <br />
+                                                    <strong>Descrição:</strong> {image.description}
+                                                </>
+                                            )}
+                                            <br />
+                                            <FaCalendar /> {new Date(image.created_at).toLocaleString('pt-BR')}
+                                        </small>
+                                    </div>
+                                    <div className="btn-group btn-group-sm ms-2">
+                                        <button
+                                            className="btn btn-outline-primary btn-sm"
+                                            onClick={() => handleViewImage(image)}
+                                            title="Visualizar imagem DICOM"
+                                        >
+                                            <FaEye />
+                                        </button>
+                                        <button
+                                            className="btn btn-outline-secondary btn-sm"
+                                            onClick={() => handleEditClick(image)}
+                                            title="Editar nome"
+                                            disabled={editingId === image.id}
+                                        >
+                                            <FaEdit />
+                                        </button>
+                                        <button
+                                            className="btn btn-outline-danger btn-sm"
+                                            onClick={() => handleDeleteImage(image.id)}
+                                            title="Deletar imagem"
+                                        >
+                                            <FaTrash />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 )}
             </div>

@@ -17,5 +17,3 @@ if (container) {
     const root = createRoot(container);
     root.render(<DicomApp />);
 }
-
-console.log('DICOM App inicializado com sucesso!');

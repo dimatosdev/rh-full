@@ -6,6 +6,7 @@ use App\Models\DicomImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class DicomImageController extends Controller
 {
@@ -31,29 +32,57 @@ class DicomImageController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'file' => 'required|file|mimes:dcm|max:10240',
-            'name' => 'string|max:255'
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'file' => 'required|file|max:512000',
+                'name' => 'string|max:255'
+            ]);
 
-        if ($validator->fails()){
-            return response()->json(['errors' => $validator-> errors()], 422);
+            if ($validator->fails()) {
+                Log::error('Validation failed', [
+                    'errors' => $validator->errors()->toArray(),
+                    'request_data' => $request->all()
+                ]);
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            $file = $request->file('file');
+
+            if (!$file || !$file->isValid()) {
+                Log::error('Invalid file', [
+                    'file_error' => $file ? $file->getErrorMessage() : 'No file received'
+                ]);
+                return response()->json(['error' => 'Arquivo inválido ou não recebido'], 422);
+            }
+
+
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $path = $file->storeAs('dicom_images', $filename, 'public');
+
+            $dicomImage = DicomImage::create([
+                'name' => $request->name ?: $file->getClientOriginalName(),
+                'file_path' => $path,
+                'original_name' => $file->getClientOriginalName(),
+                'file_size' => $file->getSize(),
+                'mime_type' => $file->getMimeType() ?: 'application/dicom'
+            ]);
+
+            Log::info('Upload successful', ['image_id' => $dicomImage->id]);
+
+            return response()->json($dicomImage, 201);
+
+        } catch (\Exception $e) {
+            Log::error('Upload exception', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return response()->json([
+                'error' => 'Erro interno do servidor: ' . $e->getMessage()
+            ], 500);
         }
-
-        $file = $request->file('file');
-        $filename =  time().'-'.$file->getClientOriginalName();
-        $path = $file->storeAs('dicom_images', $filename, 'public');
-
-        $dicomImage = DicomImage::create([
-            'name' => $request->name,
-            'file_path' => $path,
-            'original_name' => $file->getClientOriginalName(),
-            'file_size' => $file->getSize(),
-            'mime_type' => $file->getMimeType()
-        ]);
-
-        return response()->json($dicomImage, 201);
     }
+
 
     /**
      * Display the specified resource.
@@ -74,7 +103,6 @@ class DicomImageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-
     public function update(Request $request, DicomImage $dicomImage)
     {
         $validator = Validator::make($request->all(), [
@@ -101,7 +129,6 @@ class DicomImageController extends Controller
         $dicomImage->delete();
         return response()->json(['message' => 'Image deleted successfully']);
     }
-
 
     /**
      * Download image from storage.

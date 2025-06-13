@@ -12,4 +12,3 @@ import cornerstone from 'cornerstone-core';
 // Exportar para uso global
 window.cornerstone = cornerstone;
 
-console.log('Bootstrap carregado com Cornerstone básico');
