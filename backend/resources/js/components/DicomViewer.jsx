@@ -279,7 +279,7 @@ const DicomViewer = ({ image, onClose }) => {
             ctx.save();
             ctx.strokeStyle = 'red';
             ctx.lineWidth = 3;
-            const marks = 3; // 3 marcações de 5cm (5, 10, 15)
+            const marks = 4; // 3 marcações de 5cm (5, 10, 15, 20)
             const markSpacingPx = rulerLengthPx / marks;
             const markSize = 16; // tamanho da marcação em pixels
 
